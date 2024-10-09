@@ -1,0 +1,88 @@
+.navbar-one {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(46, 120, 46, 0.953);
+  color: #fff;
+}
+
+.logoImage {
+  height: 70px;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  flex: 2;
+  justify-content: flex-end;
+  margin-right: 90px;
+  padding: 0;
+}
+.init{
+  background-color: rgb(34, 37, 34);
+  border-radius: 50%;
+  padding: 22px;
+}
+
+.menuItem {
+  margin: 0 15px;
+}
+
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.icons {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+
+.init{
+  border-radius: 50%;
+}
+
+
+.icon {
+  font-size: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.icon:hover {
+  color: rgb(104, 79, 225);
+}
+
+.log-out {
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  background: rgb(52, 52, 220);
+}
+
+.log-out:hover {
+  background-color: rgb(228, 44, 44);
+}
+
+
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-count {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}

@@ -1,0 +1,115 @@
+.login-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+Link{
+  color: white;
+  text-decoration: none;
+}
+
+.google-login .p{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+h2 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.google-login {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #dddddd;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.login-button {
+  padding: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.login-button:hover{
+  background-color: rgb(73, 73, 224);
+}
+
+.image-section {
+  width: 50%;
+  position: relative;
+  background: url('../../assets/background.jpg');
+  background-size: cover;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.quote {
+  max-width: 70%;
+  font-size: 24px;
+}
+
+.quote-author {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.navigation span {
+  margin: 0 10px;
+  cursor: pointer;
+}

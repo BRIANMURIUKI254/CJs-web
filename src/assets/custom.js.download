@@ -1,0 +1,63 @@
+
+$(function() {
+
+  //loader
+  $(window).on("load", function() {
+     setTimeout(function() {
+          $('.loader').fadeOut('slow');}, 300);
+  });
+
+   // Menu Toggle Js
+   $(".burger-menu").click(function () {
+    $(this).toggleClass("menu-on");
+    $(this).siblings('nav').stop().slideToggle('open');
+  });
+
+  //POPUP OPEN
+  $(document).on('click', '[data-popup-open]',function(e) {
+    var targeted_popup_class = $(this).attr('data-popup-open');
+    $('[data-popup="' + targeted_popup_class + '"], [data-popup="' + targeted_popup_class + '"] > .overlay').fadeIn(350);
+    $('body').addClass('popup-open');
+    e.preventDefault();
+  });
+
+  //POPUP CLOSE
+  $(document).on('click', '[data-popup-close]',function(e) {
+    var targeted_popup_class = $(this).attr('data-popup-close');
+    $('[data-popup="' + targeted_popup_class + '"], [data-popup="' + targeted_popup_class + '"] > .overlay').fadeOut(350);
+    setTimeout(function() {
+      $('body').removeClass('popup-open');
+    }, 350);
+    e.preventDefault();
+  });
+
+  //POPUP CLOSE on overlay click
+  $(document).on('click','.overlay-click', function(e) {
+    var targeted_popup_class = $(this).parent().find('.popup-close').attr('data-popup-close');
+    $('[data-popup="' + targeted_popup_class + '"], [data-popup="' + targeted_popup_class + '"] > .overlay').fadeOut(350);
+    setTimeout(function() {
+      $('body').removeClass('popup-open');
+    }, 350);
+    e.preventDefault();
+  });
+
+  // Dropdown
+  $('.dropdown-link').click(function(){
+    $(this).parent('.dropdown-wrap').find('.dropdown-menu').stop().fadeToggle(300);
+  });
+
+  $(document).on("click", function(event){
+    var $trigger = $(".dropdown-wrap");
+    if($trigger !== event.target && !$trigger.has(event.target).length){
+        $(".dropdown-wrap .dropdown-menu").fadeOut(300);
+    }            
+  });
+
+  // Custom File Upload
+  $('.upload-btn-click').on('change',function(e){
+      var fileName = e.target.files[0].name;
+      $(this).next('.upload-file-text').addClass("selected").html(fileName);
+  });
+
+
+});

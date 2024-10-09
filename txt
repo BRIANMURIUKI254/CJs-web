@@ -1,0 +1,295 @@
+1. Manage the state of the cart from the app component
+  parse a state from app component
+2. update the menu component w a function that parses the data when clicked to our app component
+3. update the cart component to display items parsed to it from our app component   
+
+Exercise
+1. Forgot Password Implementation.
+2. error handle the form error to be color red in text.
+3. Reseach to see if there is signup with Google authentication and do it.
+4. On signIn page dynamically render the name of the user to show['welcome back, <name of user>].
+5. Add an Increament and Decreament buttons on the products on the cart let it function.
+
+Admin
+To achieve this, you need to create a separate authentication mechanism for the admin side. This involves:
+
+1. Creating a fixed admin user in Firebase.
+2. Implementing an admin login page.
+3. Protecting the admin routes to ensure only authenticated admin 
+   users can access them.
+
+Steps:
+Step 1: Create a Fixed Admin User in Firebase
+1. Go to your Firebase console.
+
+2: Navigate to the Authentication section.
+
+3. Add a new user with a fixed email and password that will serve as the admin account.
+
+1. Create an Admin Account in Firebase Authentication:
+- Manually create an admin account in Firebase Authentication.
+  Save the admin's UID in Firestore under a collection, e.g., adminUsers.
+
+2. Check Admin Status on Login:
+- When a user logs in, check if their UID exists in the 
+  adminUsers collection.
+
+3. Store the admin status in the state.
+
+Conditionally Render the Navbar:
+Conditionally render the "Add Products" button if the logged-in user is an admin.
+
+Firestore Security Rules: Ensure only authenticated users can write to the database.
+
+
+
+<!-- LOGIN ERROR HANDLING AND SIGNUP ERROR HANDLING -->
+
+<!-- login error handling  -->
+
+<!-- import React, { useState } from "react";
+import "../Styles/login.css";
+import { FcGoogle } from "react-icons/fc";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/logo-white.png";
+import { auth, provider } from "../../Helpers/config";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  sendPasswordResetEmail,
+} from "firebase/auth";
+
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [resetEmail, setResetEmail] = useState(""); // State for reset email
+  const [resetMessage, setResetMessage] = useState(""); // State for reset message
+  const [showResetForm, setShowResetForm] = useState(false); // State to toggle reset form
+  const [error, setError] = useState(""); // State for error messages
+  const [loading, setLoading] = useState(false); // State for loading status
+  const navigate = useNavigate();
+
+  const googl = async () => {
+    try {
+      setLoading(true);
+      await signInWithPopup(auth, provider);
+      navigate("/menu");
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const LogIn = async (e) => {
+    e.preventDefault();
+    setError(""); // Clear previous errors
+    setLoading(true); // Set loading state
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/menu");
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false); // Reset loading state
+    }
+  };
+
+  const handlePasswordReset = async (e) => {
+    e.preventDefault();
+    try {
+      await sendPasswordResetEmail(auth, resetEmail);
+      setResetMessage("Password reset email sent!");
+    } catch (error) {
+      setResetMessage(error.message);
+    }
+  };
+
+  return (
+    <div className="login-page">
+      <div className="form-section">
+        <div className="logo">
+          <img src={logo} alt="" width="20px" />
+        </div>
+        <h2>Welcome back, Mike</h2>
+        <p>Welcome back! Please enter your details.</p>
+        <button className="google-login" onClick={googl} disabled={loading}>
+          <FcGoogle /> {loading ? "Signing in..." : "Log in with Google"}
+        </button>
+        <p>or</p>
+        {error && <p className="error">{error}</p>} {/* Display error messages */}
+        <form>
+          <input
+            type="email"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="form-options">
+            <label>
+              <input type="checkbox" /> Remember for 30 days
+            </label>
+            <Link
+              to="#"
+              className="forgot"
+              onClick={() => setShowResetForm(true)}
+            >
+              Forgot password?
+            </Link>
+          </div>
+          <button
+            type="submit"
+            className="login-button"
+            onClick={LogIn}
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Log in"}
+          </button>
+        </form>
+        <p>
+          Don’t have an account? <Link to="/signup">Sign up for free</Link>
+        </p>
+
+        {/*  forgot password form  */}
+        {showResetForm ? (
+          <form onSubmit={handlePasswordReset}>
+            <input
+              type="email"
+              placeholder="Enter your email to reset password"
+              onChange={(e) => setResetEmail(e.target.value)}
+              value={resetEmail}
+            />
+            <button type="submit" className="reset-button">
+              Reset Password
+            </button>
+          </form>
+        ) : null}
+        {resetMessage ? <p>{resetMessage}</p> : null}
+      </div>
+
+      <div className="image-section">
+        <div className="image-overlay">
+          <div className="quote">
+            <p>
+              Welcome to CJ's, a fully fledged restaurant specializing in
+              delivering <br /> delivering a relaxed and memorable dining
+              experience. <br />
+              We’re currently in 14 locations; 5 in Nairobi, 8 in Kampala and 1
+              in Entebbe. <br />
+              We look forward to serving you, You're more than welcome to Find
+              us here
+            </p>
+            <div className="quote-author"></div>
+            <div className="navigation"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login; -->
+
+
+<!-- signup error handling  -->
+
+<!-- import React, { useState } from "react";
+import "../Styles/SignUp.css";
+import { Link, useNavigate } from "react-router-dom";
+import { auth, provider } from "../../Helpers/config";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+
+const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState(""); // State for error messages
+  const [loading, setLoading] = useState(false); // State for loading status
+  const navigate = useNavigate();
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    setError(""); // Clear previous errors
+    setLoading(true); // Set loading state
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate("/menu");
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false); // Reset loading state
+    }
+  };
+
+  const handleGoogleSignUp = async () => {
+    try {
+      setLoading(true);
+      await signInWithPopup(auth, provider);
+      navigate("/menu");
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="signup-container">
+      <h2>Sign Up</h2>
+      {error && <p className="error">{error}</p>} {/* Display error messages */}
+      <form onSubmit={handleSignUp}>
+        <div className="input-group">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="btn" disabled={loading}>
+          {loading ? "Signing up..." : "Sign Up"}
+        </button>
+      </form>
+      <button className="google-signup" onClick={handleGoogleSignUp} disabled={loading}>
+        <FcGoogle /> {loading ? "Signing up..." : "Sign up with Google"}
+      </button>
+      <p>
+        Already have an account? <Link to="/Login">Log in</Link>
+      </p>
+    </div>
+  );
+};
+
+export default SignUp; -->
+
+
+

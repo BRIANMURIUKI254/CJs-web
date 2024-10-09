@@ -1,0 +1,76 @@
+.upp {
+  text-align: center;
+  margin-bottom: 20px;
+  background-image: url('../../assets/banner-3.jpg');
+  width: 100%;
+  height: 300px;
+}
+
+.up h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 22px;
+}
+
+.down {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  text-align: center;
+  width: 300px;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  max-height: 250px; 
+  border-radius: 5px;
+}
+
+.product h5 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.product p {
+  font-size: 16px;
+  color: #555;
+}
+
+.product button {
+  background-color: rgba(46, 120, 46, 0.953); 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.product button:hover {
+  background-color: #006400; 
+}
+
+.success-message {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 10px; /* Some padding */
+  margin-bottom: 15px; /* Some space below */
+  text-align: center; /* Centered text */
+  border-radius: 5px; /* Rounded corners */
+  position: fixed; /* Fixed position */
+  top: 20px; /* Position from the top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  z-index: 1000; /* Ensure it is above other elements */
+}
